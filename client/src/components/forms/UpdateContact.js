@@ -1,15 +1,32 @@
+import { useMutation } from "@apollo/client"
 import { Form, Input, Button } from "antd"
 import { useEffect, useState } from "react"
+import { UPDATE_CONTACT } from "../../queries"
 
 
 const UpdateContact = props => {
     const [form] = Form.useForm()
+    const [id] = useState(props.id)
+    const [firstName, setFirstName] = useState(props.firstName)
+    const [lastName, setLastName] = useState(props.lastName)
     const [, forceUpdate] = useState()
+
+    const [updateContact] = useMutation(UPDATE_CONTACT)
 
     useEffect(() => {
         forceUpdate()
     }, [])
     
+
+    const onFinish = values => {
+        const {firstName, lastName} = values
+        updateContact({
+            variables: {
+                id, firstName, lastName
+            }
+        })
+        props.onButtonClick()
+    }
 
     return(
         <Form
@@ -17,6 +34,7 @@ const UpdateContact = props => {
             name='update-contact-form'
             layout='inline'
             size='large'
+            onFinish={onFinish}
             initialValues={{
                 firstName: props.firstName,
                 lastName: props.lastName
