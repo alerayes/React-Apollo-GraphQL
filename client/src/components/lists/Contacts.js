@@ -1,3 +1,4 @@
+import { useQuery } from "@apollo/client"
 import { List } from "antd"
 import ContactCard from "../listitems/ContactCard"
 
@@ -11,13 +12,15 @@ const getStyles = () => ({
 const Contacts = () => {
     const styles = getStyles()
 
+    const {loading, error, data} = useQuery()
+
     return (
         <List
             grid={{ gutter: 20, column:1}}
             style={styles.list}
         >
             <List.Item>
-                <ContactCard/>
+                <ContactCard/   >
             </List.Item>
         </List>
     )
