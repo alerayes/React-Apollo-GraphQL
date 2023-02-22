@@ -17,6 +17,10 @@ const UpdateContact = props => {
             name='update-contact-form'
             layout='inline'
             size='large'
+            initialValues={{
+                firstName: props.firstName,
+                lastName: props.lastName
+            }}
         >
             <Form.Item
                 name='firstName'
