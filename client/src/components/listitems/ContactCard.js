@@ -34,7 +34,7 @@ const ContactCard = props => {
             style={styles.card}
             actions={[
               <EditOutlined key='edit' onClick={handleButtonClick}/>,
-              <RemoveContact />
+              <RemoveContact id={id}/>
             ]}
           >
             {firstName} {lastName}

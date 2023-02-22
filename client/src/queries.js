@@ -23,6 +23,10 @@ export const ADD_CONTACT = gql`
 
 export const REMOVE_CONTACT = gql`
     mutation RemoveContact($id: String!){
-        removeContact(id: $id)
+        removeContact(id: $id) {
+            id 
+            firstName
+            lastName
+        }
     }
 `
