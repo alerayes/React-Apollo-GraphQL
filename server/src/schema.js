@@ -42,7 +42,8 @@ const resolvers = {
     Query: {
         contacts: () => contactsArray,
         contact: (root, args) => {
-            return find(contactsArray, {id: args.id})
+            const contact = find(contactsArray, {id: args.id})
+            return contact
         }
 
     },
