@@ -1,4 +1,5 @@
 import { List } from "antd"
+import ContactCard from "../listitems/ContactCard"
 
 const getStyles = () => ({
     list: {
@@ -15,7 +16,9 @@ const Contacts = () => {
             grid={{ gutter: 20, column:1}}
             style={styles.list}
         >
-
+            <List.Item>
+                <ContactCard/>
+            </List.Item>
         </List>
     )
 }
